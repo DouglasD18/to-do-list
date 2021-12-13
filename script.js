@@ -15,15 +15,17 @@ function criaTarefa() {
     for (tarefa of item) {
         tarefa.addEventListener('click', mudaBackground);
         function mudaBackground(event) {
-            let cor = document.querySelector('.clicado');
-            if (cor == true) {
-                cor.classList.remove('clicado');
-            }
+            removeBackground(item);
             let clicado = event.target;
             clicado.className = 'clicado';
         }
     }
 };
 
-
-
+function removeBackground(item) {
+    for (const li of item) {
+        if (li.classList.contains('clicado')) {
+            li.classList.remove('clicado');
+        }
+    }
+}
