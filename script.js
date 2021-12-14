@@ -2,9 +2,11 @@ let input = document.querySelector('#texto-tarefa');
 let button = document.getElementById("criar-tarefa");
 let lista = document.getElementById("lista-tarefas");
 let apagaTudo = document.getElementById('apaga-tudo');
+let removeFinalizadas = document.getElementById('remover-finalizados');
 
 button.addEventListener('click', criaTarefa);
 apagaTudo.addEventListener('click', apagaTarefas);
+removeFinalizadas.addEventListener('click', apagaFinalizados)
 
 
 function criaTarefa() {
@@ -45,5 +47,14 @@ function adicionaCompleted(event){
 function apagaTarefas() {
     while (lista.firstChild) {
         lista.removeChild(lista.firstChild);
+    }
+}
+
+function apagaFinalizados() {
+    let finalizados = document.getElementsByClassName('completed');
+    while (finalizados.length > 0) {
+        for (let i = 0; i < finalizados.length; i++) {
+            finalizados[i].remove();
+        }
     }
 }
