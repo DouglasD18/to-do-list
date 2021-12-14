@@ -1,8 +1,11 @@
 let input = document.querySelector('#texto-tarefa');
 let button = document.getElementById("criar-tarefa");
 let lista = document.getElementById("lista-tarefas");
+let apagaTudo = document.getElementById('apaga-tudo');
 
 button.addEventListener('click', criaTarefa);
+apagaTudo.addEventListener('click', apagaTarefas);
+
 
 function criaTarefa() {
     let li = document.createElement('li');
@@ -36,5 +39,11 @@ function adicionaCompleted(event){
         event.target.classList.remove('completed')
     } else {
         event.target.classList.add('completed');
+    }
+}
+
+function apagaTarefas() {
+    while (lista.firstChild) {
+        lista.removeChild(lista.firstChild);
     }
 }
