@@ -3,10 +3,28 @@ let button = document.getElementById("criar-tarefa");
 let lista = document.getElementById("lista-tarefas");
 let apagaTudo = document.getElementById('apaga-tudo');
 let removeFinalizadas = document.getElementById('remover-finalizados');
+let salvaTarefas = document.getElementById('salvar-tarefas');
+let removeSelected = document.getElementById('remover-selecionado');
+
+window.onload = function() {
+    lista.innerHTML = localStorage.getItem('tarefas');
+    let item = document.getElementsByClassName('item');
+    for (tarefa of item) {
+        tarefa.ondblclick = adicionaCompleted;
+        tarefa.addEventListener('click', mudaBackground);
+        function mudaBackground(event) {
+            removeBackground(item);
+            let clicado = event.target;
+            clicado.classList.add('clicado');
+        }
+    }
+}  
 
 button.addEventListener('click', criaTarefa);
 apagaTudo.addEventListener('click', apagaTarefas);
-removeFinalizadas.addEventListener('click', apagaFinalizados)
+removeFinalizadas.addEventListener('click', apagaFinalizados);
+salvaTarefas.addEventListener('click', salvarTarefas);
+removeSelected.addEventListener('click', removeSelecionado);
 
 
 function criaTarefa() {
@@ -58,3 +76,15 @@ function apagaFinalizados() {
         }
     }
 }
+
+function removeSelecionado() {
+    let clicado = document.querySelector('.clicado');
+    clicado.remove();
+}
+
+function salvarTarefas() {
+
+    localStorage.clear();
+    localStorage.setItem('tarefas', lista.innerHTML);
+
+} 
