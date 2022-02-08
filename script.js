@@ -20,7 +20,7 @@ window.onload = function() {
             clicado.classList.add('clicado');
         }
     }
-}  
+};
 
 button.addEventListener('click', criaTarefa);
 apagaTudo.addEventListener('click', apagaTarefas);
