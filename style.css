@@ -1,3 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: fantasy;
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body input {
+    border: 1px solid #363432;
+    border-radius: 5px;
+}
+
+.container {
+    width: 40%;
+}
+
+.container main {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+}
+
+#criar-tarefa {
+    width: 33%;
+}
+
 .clicado {
     background-color: rgb(128, 128, 128);
 }
@@ -6,6 +40,20 @@
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 
-footer div {
-    margin-bottom: 10px;
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.items {
+    margin: 15px 0;
+    font-family: monospace;
 }

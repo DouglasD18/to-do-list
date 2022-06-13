@@ -5,38 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>To Do List</title>
 </head>
 <body>
-    <header>
-        <h1>Minha Lista de Tarefas</h1>
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    </header>
-
-    <main>
-        <section>
-            <input type="text" id="texto-tarefa">
-            <button type="submit" id="criar-tarefa">Criar tarefa</button>
-        </section>
-        <ol id="lista-tarefas">
-
-        </ol>
-    </main>
-    
-    <footer>
-        <div>
-            <button id="mover-cima">Up</button>
-            <button id="mover-baixo">Down</button>
+    <div class="container">
+        <div class="shadow p-3 mb-5 bg-body rounded">
+            <header>
+                <h1>My to do list</h1>
+                <p id="funcionamento">Double-click an item to mark it as complete</p>
+            </header>
+        
+            <main>
+                <input type="text" id="texto-tarefa" class="form-control">
+                <button type="submit" id="criar-tarefa" class="btn btn-outline-success font-monospace">Create to do item</button>
+            </main>
+            
+            <footer>
+                <div class="footer-btn">
+                    <button id="mover-cima" class="btn btn-outline-secondary font-monospace">Up</button>
+                    <button id="mover-baixo" class="btn btn-outline-secondary font-monospace">Down</button>
+                </div>
+        
+                <section class="footer-btn">
+                    <button type="submit" id="salvar-tarefas" class="btn btn-outline-info font-monospace">Save items</button>
+        
+                    <button type="submit" id="apaga-tudo" class="btn btn-outline-danger font-monospace">Delete all</button>
+            
+                    <button type="submit" id="remover-selecionado" class="btn btn-outline-danger font-monospace">Remove selected</button>
+            
+                    <button type="submit" id="remover-finalizados" class="btn btn-outline-danger font-monospace">Remove done items</button>
+                </section>
+            </footer>
         </div>
 
-        <button type="submit" id="salvar-tarefas">Salvar tarefas</button>
-
-        <button type="submit" id="apaga-tudo">Apagar tarefas</button>
-
-        <button type="submit" id="remover-selecionado">Remover selecionado</button>
-
-        <button type="submit" id="remover-finalizados">Remover tarefas finalizadas</button>
-    </footer>
+        <div class="items font-monospace">
+            <ol id="lista-tarefas">
+            </ol>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
